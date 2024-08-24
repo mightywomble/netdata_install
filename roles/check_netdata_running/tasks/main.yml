@@ -1,0 +1,12 @@
+---
+- name: Check if Netdata is running
+  ansible.builtin.uri:
+    url: http://127.0.0.1:19999
+    status_code: 200
+    validate_certs: no
+  register: netdata_running
+
+- name: Fail if Netdata is not running
+  ansible.builtin.fail:
+    msg: "Netdata is not running!"
+  when: netdata_running.status != 200

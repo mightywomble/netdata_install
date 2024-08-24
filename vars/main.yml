@@ -1,0 +1,7 @@
+api_key: 831551ea-16fc-4f30-8422-877ff694f11b
+stream_dest: 79.99.41.132
+netdata_tmp: "/opt/netdata-offline"
+netdata_parent: "https://79.99.41.132:19999"
+netdata_conf: "/opt/netdata/etc/netdata/netdata.conf"
+netdata_stream: "/opt/netdata/usr/lib/netdata/conf.d/stream.conf"
+netdata_stream_url: 79.99.41.132
