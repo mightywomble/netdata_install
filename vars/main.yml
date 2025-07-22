@@ -1,0 +1,7 @@
+api_key: Your API keu
+stream_dest: IP of Parent Server
+netdata_tmp: "/opt/netdata-offline"
+netdata_parent: "https://IP of PArent Server:19999"
+netdata_conf: "/opt/netdata/etc/netdata/netdata.conf"
+netdata_stream: "/opt/netdata/usr/lib/netdata/conf.d/stream.conf"
+netdata_stream_url: Ip of parent server

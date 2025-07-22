@@ -1,0 +1,21 @@
+---
+- name: Enable streaming in stream.conf (first occurrence only)
+  ansible.builtin.replace:
+    path: "{{ netdata_stream }}"
+    regexp: '^(.*)enabled = no'
+    replace: '\1enabled = yes'
+    backup: yes
+
+- name: Set destination in stream.conf
+  ansible.builtin.lineinfile:
+    path: "{{ netdata_stream }}"
+    regexp: '^\s*destination ='
+    line: '    destination = {{ netdata_stream_url }}'
+    state: present
+
+- name: Set API key in stream.conf
+  ansible.builtin.lineinfile:
+    path: "{{ netdata_stream }}"
+    regexp: '^\s*api key ='
+    line: '    api key = {{ api_key }}'
+    state: present

@@ -1,0 +1,11 @@
+---
+- name: Download netdata installation script
+  ansible.builtin.get_url:
+    url: https://get.netdata.cloud/kickstart.sh
+    dest: /opt/netdata-kickstart.sh
+    mode: '0755'
+
+- name: Prepare netdata offline installation source
+  ansible.builtin.shell: sh /opt/netdata-kickstart.sh --prepare-offline-install-source ./netdata-offline
+  args:
+    chdir: /opt

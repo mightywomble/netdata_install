@@ -1,0 +1,11 @@
+---
+- name: Ensure the netdata offline installation directory exists
+  ansible.builtin.file:
+    path: "{{ netdata_tmp }}"
+    state: directory
+    mode: '0755'
+
+- name: Run the netdata installation script
+  ansible.builtin.command: ./install.sh --non-interactive
+  args:
+    chdir: "{{ netdata_tmp }}"

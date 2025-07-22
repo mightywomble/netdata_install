@@ -1,0 +1,15 @@
+---
+- name: Configure netdata.conf for child node
+  ansible.builtin.lineinfile:
+    path: "{{ netdata_conf }}"
+    regexp: '^# registry to announce ='
+    line: 'registry to announce = {{ netdata_parent }}'
+    state: present
+
+- name: Set registry hostname
+  ansible.builtin.lineinfile:
+    path: "{{ netdata_conf }}"
+    regexp: '^# registry hostname ='
+    line: 'registry hostname = {{ ansible_hostname }}'
+    state: present
+
